@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF--8" />
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfjvcvbsn/image/upload/v1756305999/Desain_tanpa_judul_hncthi.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atha Rasyid | Photographer & Web Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'poppins': ['Poppins', 'sans-serif'],
+              'montserrat': ['Montserrat', 'sans-serif'],
+              'playfair': ['"Playfair Display"', 'serif'],
+            },
+            colors: {
+              'brand-gold': '#d4af37',
+              'brand-light': '#f3f4f6',
+              'brand-dark': '#212121',
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        --s: 200px; /* control the size */
+        --c1: #1d1d1d;
+        --c2: #4e4f51;
+        --c3: #3c3c3c;
+
+        background: repeating-conic-gradient(
+              from 30deg,
+              #0000 0 120deg,
+              var(--c3) 0 180deg
+            )
+            calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+          repeating-conic-gradient(
+            from 30deg,
+            var(--c1) 0 60deg,
+            var(--c2) 0 120deg,
+            var(--c3) 0 180deg
+          );
+        background-size: var(--s) calc(var(--s) * 0.577);
+      }
+
+      @keyframes rotate-hue {
+        to {
+          filter: hue-rotate(1turn);
+        }
+      }
+
+      .animated-border-box {
+        --border-radius: 0.75rem; /* 12px for rounded-lg */
+        --border-width: 3px;
+        
+        position: relative;
+        background-color: #212121;
+        border-radius: var(--border-radius);
+        z-index: 1;
+      }
+
+      .animated-border-box::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        
+        padding: var(--border-width);
+        border-radius: var(--border-radius);
+        background-image: conic-gradient(
+          #488cfb, #29dbbc, #ddf505, #ff9f0e,
+          #e440bb, #655adc, #488cfb
+        );
+        
+        /* Masking */
+        --m-i: linear-gradient(#000, #000);
+        --m-o: content-box, padding-box;
+        -webkit-mask-image: var(--m-i), var(--m-i);
+        mask-image: var(--m-i), var(--m-i);
+        -webkit-mask-origin: var(--m-o);
+        mask-origin: var(--m-o);
+        -webkit-mask-clip: var(--m-o);
+        mask-composite: exclude;
+        -webkit-mask-composite: destination-out;
+
+        /* Animation */
+        filter: hue-rotate(0);
+        animation: rotate-hue linear 1.5s infinite;
+        animation-play-state: paused;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .animated-border-box:hover::before {
+        animation-play-state: running;
+        opacity: 1;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^6.25.1",
+    "react-router": "https://aistudiocdn.com/react-router@^6.25.1"
+  }
+}
+</script>
+</head>
+  <body class="font-poppins">
+    <div id="root"></div>
+  </body>
+</html>
